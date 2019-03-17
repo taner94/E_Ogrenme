@@ -1,0 +1,145 @@
+﻿@using EOgrenme.Models
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>EOgrenme</title>
+    <!-- Bootstrap core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+    <link href="~/Content/ekko-lightbox.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <script src="~/Scripts/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <meta name="description" content="The description of my page" />
+</head>
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Menu</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-left">
+                    <li class="dropdown left">
+                        @if ((CurrentSession.User == null) && (AuthorSession.Author == null))
+                        {
+                            <a href="@Url.Action("Index", "Home")">
+                                <span class="fa fa-user ">
+                                    <img class="img-rounded" style="height:24px;" src="~/Images/default/logo.png"> E-Ögrenme
+                                </span>
+                            </a>
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Index", "Home")">
+                                <span class="fa fa-user">
+                                    <img class="img-rounded" style="height:24px;" src="~/Images/default/logo.png"> Ana Sayfa
+                                </span>
+                            </a>
+                        }
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    @if (CurrentSession.User != null)
+                    {
+                        <li class="dropdown right">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-circle" style="height:24px;width:24px;" src="~/Images/default/book.png" />
+                                Ders
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("TypeOfCourseList", "Course")"><span class="fa fa-user glyphicon glyphicon-book"></span> Derslerim</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown right">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-circle" style="height:24px;width:24px;" src="~/Images/@CurrentSession.User.ProfileImageFileName">
+                                @CurrentSession.User.Name
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li> <a href="@Url.Action("UserShowMyProfile", "User")"><span class="fa fa-user glyphicon glyphicon-send"></span> Profilim</a> </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("UserEditProfile", "User")"><span class="fa fa-sign-out glyphicon glyphicon-pencil"></span> Profili Düzenle</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("UserLogout", "User")"><span class="fa fa-sign-out glyphicon glyphicon-log-out"></span> Çıkış</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (AuthorSession.Author != null)
+                    {
+                        <li class="dropdown right">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-circle" style="height:24px;width:24px;" src="~/Images/default/book.png" />
+                                Ders
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("Course", "Course")"><span class="fa fa-user glyphicon glyphicon-book"></span> Derslerim</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("ImageUpload", "Share")"><span class="fa fa-user "></span><i class="glyphicon glyphicon-picture"></i> Resim Paylas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("VideoUpload", "Share")"> <span class="fa fa-user"></span><i class="glyphicon glyphicon-facetime-video"></i>  Video Paylas</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("SoundUpload", "Share")"> <span class="fa fa-user"></span><i class="glyphicon glyphicon-music"></i>  Ses Paylas</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown right">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                <img class="img-circle" style="height:24px;width:24px;" src="~/Images/@AuthorSession.Author.ProfileImageFileName">
+                                @AuthorSession.Author.Name
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li> <a href="@Url.Action("AuthorSharedCourse", "Author" )"><span class="fa fa-user glyphicon glyphicon-send"></span> Paylaştığım Dersler</a> </li>
+                                <li role="separator" class="divider"></li>
+                                <li> <a href="@Url.Action("AuthorSharedCourseShares", "Author")"><span class="fa fa-user glyphicon glyphicon-send"></span> Paylaştığım İçerikler</a> </li>
+                                <li role="separator" class="divider"></li>
+                                <li> <a href="@Url.Action("AuthorShowMyProfile", "Author")"><span class="fa fa-user glyphicon glyphicon-send"></span> Profilim</a> </li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("AuthorEditProfile", "Author")"><span class="fa fa-sign-out glyphicon glyphicon-pencil"></span> Profili Düzenle</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="@Url.Action("AuthorLogout", "Author")"><span class="fa fa-sign-out glyphicon glyphicon-log-out"></span> Çıkış</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @if (((CurrentSession.User == null) && (AuthorSession.Author == null)))
+                    {
+                        <li class="dropdown right">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Kullanıcı
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("UserLogin", "User")"><span class="fa fa-sign-in glyphicon glyphicon-log-in"></span> Giriş Yap</a></li>
+                                <li><a href="@Url.Action("UserRegister", "User")"><span class="fa fa-sign-out glyphicon glyphicon-plus"></span> Kayıt Ol</a></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown right">
+                            <a class="dropdown-toggle count-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                Eğitmen
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href="@Url.Action("AuthorLogin", "Author")"><span class="fa fa-sign-in glyphicon glyphicon-log-in"></span> Giriş Yap</a></li>
+                                <li><a href="@Url.Action("AuthorRegister", "Author")"><span class="fa fa-sign-out glyphicon glyphicon-plus"></span> Kayıt Ol</a></li>
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </div>
+            </div>
+        </nav>
+        @RenderBody()
+    </body>
+</html>

@@ -1,0 +1,50 @@
+﻿@using EOgrenme.Entities
+@model Author
+@{
+    ViewBag.Title = "AuthorShowAuthorProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default post">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <a href="/Author/AuthorShowAuthorProfile/@Model.Id" class="post-avatar thumbnail"><img src="~/images/@Model.ProfileImageFileName" alt="" /></a>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="bubble">
+                                        <div class="pointer">
+                                            <p>Kullanıcı Adı :<b> @Model.Username</b></p>
+                                            <p>Ad Soyad      :<b> @Model.Name @Model.Surname</b></p>
+                                            <p>E-Mail        :<b> @Model.Email</b></p>
+                                            <p>Tekefon No    :<b> @Model.PhoneNumber</b></p>
+
+                                            <p>
+                                                Dersleri      :
+                                                <b>
+                                                    @foreach (Course c in Model.Courses)
+                                                    {
+                                                        <b>@c.CourseName <t /> Öğrenci Saysı @c.UserCount <br /> </b>
+                                                    }
+                                                </b>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

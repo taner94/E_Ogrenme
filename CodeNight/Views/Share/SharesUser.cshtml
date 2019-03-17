@@ -1,0 +1,71 @@
+﻿
+@using EOgrenme.Models
+@using EOgrenme.Entities
+@model List<Share>
+
+@{
+    ViewBag.Title = "SharesUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <section>
+        <div class="container" id="myhares">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        @foreach (Share share in Model)
+                        {
+                            <div class="panel panel-default post" data-share-id="@share.Id">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="bubble">
+                                                <div class="pointer">
+                                                    <p>@share.ShareText</p>
+                                                    @if (share.ShareImagFileName != null)
+                                                    {
+                                                        <img src="~/images/@share.ShareImagFileName" class="img-responsive" />
+                                                    }
+                                                </div>
+                                                <div class="pointer">
+                                                    @if (share.ShareVideoFileName != null)
+                                                    {
+                                                        <video controls="controls" class="img-responsive">
+                                                            <source src="~/Videos/@share.ShareVideoFileName" type="video/mp4" />
+                                                        </video>
+                                                    }
+                                                </div>
+                                                <div class="pointer">
+                                                    @if (share.ShareSoundFileName != null)
+                                                    {
+                                                        <audio controls="controls">
+                                                            <source src="~/sounds/@share.ShareSoundFileName" type="audio/mpeg" />
+                                                        </audio>
+                                                    }
+                                                </div>
+                                                <hr />
+                                                <div class="pointer-border">
+                                                    <div class="col-md-6">
+                                                        <p class="text-right" style="font-size:14px"><span class="fa fa-calendar"> @share.CreatedDate.ToString("dd.MM.yy HH:mm")</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+

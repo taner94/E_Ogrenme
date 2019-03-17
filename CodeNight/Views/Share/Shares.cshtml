@@ -1,0 +1,178 @@
+﻿@using EOgrenme.Models
+@model EOgrenme.Entities.Share
+@{
+    ViewBag.Title = "Shares";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <section>
+        <div class="container" id="myhares">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+
+                        <div class="panel panel-default">
+
+                            <div class="panel-heading">
+                                <h3 class="panel-title">Bir video,fotoğraf,ses veya yazı paylaş</h3>
+                            </div>
+                            <div class="panel-body">
+                                <form>
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title">@ViewData["deneme"]</h3>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="hidden" class="form-control" placeholder="Ders Ismi" id="status1" value="@ViewData["deneme"]" />
+                                    </div>
+
+                                    <div class="form-group">
+                                        <textarea class="form-control" placeholder="Ders Paylaşımı Yap.." id="status"></textarea>
+                                    </div>
+
+                                    <button type="submit" class="btn btn-success" id="btnPost"><i class="glyphicon glyphicon-send"></i>  Paylaş</button>
+
+                                    
+
+
+                                </form>
+
+                                <form>
+                                    <!-- Button trigger modal -->
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                                        Launch demo modal
+                                    </button>
+
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    @using (Html.BeginForm("VideoUpload", "Share", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+
+                                                        <div class="form-horizontal">
+                                                            <hr />
+                                                            @Html.ValidationSummary(false)
+                                                            <div class="form-group">
+                                                                <div class="col-md-4">
+                                                                    <label>Ders Ismini Yazınız</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    @Html.EditorFor(model => model.Course.CourseName, new { htmlAttributes = new { @class = "form-control" } })
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-md-4">
+                                                                    <label>Düşüncelerinizi Yazınız</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    @Html.EditorFor(model => model.ShareText, new { htmlAttributes = new { @class = "form-control" } })
+                                                                </div>
+                                                            </div>
+
+                                                            <div class="form-group">
+                                                                <div class="col-md-4">
+                                                                    <label>Video Seçiniz</label>
+                                                                </div>
+                                                                <div class="col-md-8">
+                                                                    <input type="file" name="video" id="video" />
+
+                                                                </div>
+                                                            </div>
+                                                            <div class="form-group">
+                                                                <div class="col-md-offset-2 col-md-8">
+                                                                    <button type="submit" class="btn btn-success">
+                                                                        <span class="fa fa-plus"><i class="glyphicon glyphicon-send"></i> Paylaş</span>
+                                                                    </button>
+                                                                    <a href="@Url.Action("Index", "Home")" type="button" class="btn btn-success"><i class="glyphicon glyphicon-home"></i> Ana Sayfa</a>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    }
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    <button type="button" class="btn btn-primary">Save changes</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+
+
+                                </form>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+<script>
+    $("#btnPost").click(function () {
+        var Share = $("#status").val();
+        var Ad = $("#status1").val();
+        alert(Share);
+        $.ajax({
+            url: "/Share/ShareShare",
+            method: "POST",
+            data: {
+                ShareText: Share,
+                ad: Ad
+            }
+        }).done(function (data) {
+            if (data.result) {
+                load("/Home/Index");
+            }
+            else {
+
+            }
+        }).fail(function () {
+
+        });
+    });
+
+    function Sil(Id) {
+        $.ajax({
+            url: "/Share/ShareDelete",
+            method: "POST",
+            data: {
+                id: Id
+            }
+        }).done(function (data) {
+            if (data.result) {
+                load("/Home/Index");
+            }
+            else {
+
+            }
+        }).fail(function () {
+
+        });
+    };
+</script>
+

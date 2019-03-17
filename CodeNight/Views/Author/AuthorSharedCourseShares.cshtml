@@ -1,0 +1,78 @@
+﻿@using EOgrenme.Entities
+@using EOgrenme.Models
+@model List<Share>
+
+@{
+    ViewBag.Title = "AuthorSharedCourseShares";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (AuthorSession.Author != null)
+{
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">Paylasimlariniz</h3>
+                        </div>
+                    </div>
+                    @foreach (Share share in Model)
+                    {
+                        <div class="panel panel-default post" data-share-id="@share.Id">
+                            <div class="panel-heading">
+                                <a href="/Course/ShowCourse/@share.Course.Id"><h3 class="panel-title">@share.Course.CourseName</h3></a>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+
+                                        <a href="/Account/ShowProfile/@share.Owner.Id" class="post-avatar thumbnail"><img src="~/images/@share.Owner.ProfileImageFileName" alt="" /></a>
+                                        <a href="/Account/ShowProfile/@share.Owner.Id"><div class="text-center">@share.Owner.Name&nbsp;@share.Owner.Surname</div></a>
+
+                                    </div>
+                                    <div class="col-md-10">
+                                        <div class="bubble">
+
+                                            <div class="pointer">
+                                                <p>@share.ShareText</p>
+                                                @if (share.ShareImagFileName != null)
+                                                {
+                                                    <img src="~/images/@share.ShareImagFileName" class="img-responsive" />
+                                                }
+                                            </div>
+                                            <div class="pointer">
+                                                @if (share.ShareVideoFileName != null)
+                                                {
+                                                    <video controls="controls" class="img-responsive">
+                                                        <source src="~/Videos/@share.ShareVideoFileName" type="video/mp4" />
+                                                    </video>
+                                                }
+                                            </div>
+                                            <div class="pointer">
+                                                @if (share.ShareSoundFileName != null)
+                                                {
+                                                    <audio controls="controls">
+                                                        <source src="~/sounds/@share.ShareSoundFileName" type="audio/mpeg" />
+                                                    </audio>
+                                                }
+                                            </div>
+                                            <hr />
+                                            <div class="pointer-border"></div>
+                                        </div>
+                                        <p class="text-right"><span class="fa fa-calendar"> @share.CreatedDate.ToString("dd.MM.yy HH:mm")</span></p>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+}
+
+
+

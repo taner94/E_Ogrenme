@@ -1,0 +1,49 @@
+﻿@using EOgrenme.Models
+@using EOgrenme.Entities
+@{
+    ViewBag.Title = "AuthorShowMyProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="/Author/AuthorShowMyProfile/@AuthorSession.Author.Id" class="post-avatar thumbnail"><img src="~/images/@AuthorSession.Author.ProfileImageFileName" alt="" /></a>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="bubble">
+                                    <div class="pointer">
+                                        <p>Kullanıcı Adı :<b> @AuthorSession.Author.Username</b></p>
+                                        <p>Ad Soyad      :<b> @AuthorSession.Author.Name @AuthorSession.Author.Surname</b></p>
+                                        <p>E-Mail        :<b> @AuthorSession.Author.Email</b></p>
+                                        <p>Yas        :<b> @AuthorSession.Author.Age</b></p>
+                                        <p>Dogum Tar. :<b> @AuthorSession.Author.DateOfBirth</b></p>
+                                        <p>Telefon No :<b> @AuthorSession.Author.PhoneNumber</b></p>
+                                        <p>Activate Guid :<b> @AuthorSession.Author.ActivateGuid</b></p>
+                                        <p>
+                                            Dersleri      :
+                                            <b>
+                                                @foreach (Course c in Model.Courses)
+                                                {
+                                                    <b>@c.CourseName <t /> Öğrenci Saysı @c.UserCount <br /> </b>
+                                                }
+                                            </b>
+                                        </p>
+
+                                        <a class="btn btn-primary btn-sm" href="/Author/AuthorFreezeProfile">Hesap Dondur.</a>                                    
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

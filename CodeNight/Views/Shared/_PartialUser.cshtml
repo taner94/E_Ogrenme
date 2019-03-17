@@ -1,0 +1,23 @@
+﻿@using EOgrenme.Entities
+@model List<User>
+
+@foreach (User user in Model)
+{
+
+    <div class="media">
+        <div class="media-left">
+            <a href="/User/UserShowUserProfile/@user.Id">
+                <img class="media-object img-thumbnail" style="height:48px" src="~/Images/@user" alt="...">
+            </a>
+        </div>
+        <div class="media-body">
+            <div>
+                <div class="row">
+                    <small class="col-md-5 text-right">
+                        <a href="/User/UserShowUserProfile/@user.Id"><span class="glyphicon glyphicon-user"></span> @user</a> &nbsp;
+                    </small>
+                </div>
+            </div>
+        </div>
+    </div>
+}

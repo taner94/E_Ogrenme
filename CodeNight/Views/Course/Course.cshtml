@@ -1,0 +1,214 @@
+﻿
+@using EOgrenme.Models
+@using EOgrenme.Entities
+@model List<Course>
+@{
+    ViewBag.Title = "Course";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/jquery-3.2.1.min.js"></script>
+<script src="~/Scripts/jquery-3.2.1.js"></script>
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        @if (AuthorSession.Author != null)
+                        {
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Ders Olustur</h2>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-md-10">
+                                    <form>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control" placeholder="Ders Ismi" id="status" />
+                                        </div>
+                                    </form>
+                                </div>
+                                <div>
+                                    <form>
+                                        <select id="Type">
+                                            <option value="0">Seçiniz</option>
+                                            <option value="1">Metin</option>
+                                            <option value="2">Resim</option>
+                                            <option value="3">Video</option>
+                                            <option value="4">Ses</option>
+                                        </select>
+                                    </form>
+
+                                </div>
+                                <div class="col-md-2">
+                                    <form>
+                                        <button type="submit" class="btn btn-success" id="btnPost"><i class="glyphicon glyphicon-send"></i>  Oluştur</button>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                        @foreach (Course course in Model)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="/Share/SharesAuthor/@course.Id"><h3 class="panel-title">@course.CourseName</h3></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <a href="/Author/AuthorShowMyProfile/@course.Owner.Id" class="post-avatar thumbnail"><img src="~/images/@course.Owner.ProfileImageFileName" alt="" /></a>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="bubble">
+                                            <div class="pointer">
+                                                <p>Ders Ad        :<b> @course.CourseName</b></p>
+                                                <p>Yazar          :<b><a href="/Author/AuthorShowMyProfile/@course.Owner.Id">@course.Owner.Name @course.Owner.Surname </a></b></p>
+                                                <p>Ders Bas. Tar. :<b> @course.CreatedDate</b></p>
+                                                <p>Ders Sayisi    :<b> @course.Share.Count</b></p>
+                                                <p>Ogrenci Sayisi :<b> @course.UserCount</b></p>
+
+                                                @*@foreach (User c in Model.Find(x => x.Id == course.Id).Comments)
+                                                    {
+                                                        <p>fdfdddsss </p><br />
+                                                    }*@
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <button type="submit" onclick="Sil(@course.Id)" id="btnDel" class="btn btn-danger">
+                                            Dersi Sil
+                                        </button>
+                                        @if (course.CourseActive == true)
+                                        {
+                                            <button type="submit" onclick="Bitir(@course.Id)" id="btnDel" class="btn btn-danger">
+                                                Dersi Bitir.
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button type="submit" onclick="Baslat(@course.Id)" id="btnDel" class="btn btn-default">
+                                                Dersi Başlat.
+                                            </button>
+                                        }
+
+
+
+                                        <p class="post-actions">
+                                            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_comment" data-share-id="@course.Id">
+                                                <span class="fa fa-comment"></span><i class="glyphicon glyphicon-comment"></i> Yorumlar&nbsp;&nbsp;&nbsp;
+                                            </button>
+                                        </p>
+
+                                        <p class="post-actions">
+                                            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_user" data-share-id="@course.Id">
+                                                <span class="fa fa-comment"></span><i class="glyphicon glyphicon-comment"></i> Kullanicilar&nbsp;
+                                            </button>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+<script>
+
+    function Sil(Id) {
+        $.ajax({
+            url: "/Course/Delete",
+            method: "POST",
+            data: {
+                id: Id
+            }
+        }).done(function (data) {
+            if (data.result) {
+                load("/Home/Index");
+            }
+            else {
+
+            }
+        }).fail(function () {
+
+        });
+    };
+
+    function Bitir(Id) {
+        $.ajax({
+            url: "/Course/IsAvtiveCourse",
+            method: "POST",
+            data: {
+
+                id: Id
+            }
+        }).done(function (data) {
+            if (data.result) {
+                load("/Home/Index");
+            }
+            else {
+
+            }
+        }).fail(function () {
+
+        });
+    };
+
+    function Baslat(Id) {
+        $.ajax({
+            url: "/Course/IsNotAvtiveCourse",
+            method: "POST",
+            data: {
+
+                id: Id
+            }
+        }).done(function (data) {
+            if (data.result) {
+                load("/Home/Index");
+            }
+            else {
+
+            }
+        }).fail(function () {
+
+        });
+    };
+
+    $("#btnPost").click(function () {
+        var Share = $("#status").val();
+        var x = document.getElementById("Type").selectedIndex;
+        $.ajax({
+            url: "/Course/CreateCourse",
+            method: "POST",
+            data: {
+                CourseName: Share,
+                id: x
+            }
+        }).done(function (data) {
+            if (data.result) {
+                load("/Home/Index");
+            }
+            else {
+
+            }
+        }).fail(function () {
+
+        });
+    });
+</script>
+
+
+
+@bootstrap.ModalPopup(id: "modal_comment", title: "Yorumlar")
+@bootstrap.ModalPopup(id: "modal_user", title: "Ogrenciler")
+<script src="~/Scripts/comment.js"></script>

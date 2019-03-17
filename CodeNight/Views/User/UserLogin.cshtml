@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "UserLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using EOgrenme.Entities.ValueObject
+@model LoginViewModel
+@{
+    ViewBag.Title = "Ana Sayfa";
+}
+<link href="~/Content/login-register.css" rel="stylesheet" />
+<link href="~/Content/validation-summary.css" rel="stylesheet" />
+@using (Html.BeginForm())
+{
+    <section class="login">
+        <div class="container">
+            <div class="row main">
+                <div class="form-header" style="background-color:#6c7a99">
+                    <h1 class="text-center ">Kullanıcı Girişi</h1>
+                </div>
+                <div class="main-content" style="border-color:#6c7a99">
+                    @Html.ValidationSummary(false)
+                    <div class="input-group ">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></span>
+                        @Html.TextBoxFor(model => model.Username, new { @class = "form-control", placeholder = "Kullanıcı adınız" })
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock" aria-hidden="true"></span></span>
+                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", placeholder = "Şifreniz", type = "password" })
+                    </div>
+                    <div class="form-group ">
+                        <button type="submit" class="btn btn-success btn-lg btn-block login-button">Giriş</button>
+                    </div>
+                    <div class="form-group ">
+                        <a href="@Url.Action("UserForgetPassword", "User")">
+                            <span class="fa fa-user">
+                                Şifremi Unuttum.
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+

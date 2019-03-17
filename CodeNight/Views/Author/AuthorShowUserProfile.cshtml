@@ -1,0 +1,45 @@
+﻿@using EOgrenme.Entities
+@model User
+
+
+@{
+    ViewBag.Title = "AuthorShowUserProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default post">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    <a href="/Author/AuthorShowUserProfile/@Model.Id" class="post-avatar thumbnail"><img src="~/images/@Model.ProfileImageFileName" alt="" /></a>
+                                </div>
+                                <div class="col-md-10">
+                                    <div class="bubble">
+                                        <div class="pointer">
+                                            <p>Kullanıcı Adı :<b> @Model.Username</b></p>
+                                            <p>Ad Soyad      :<b> @Model.Name @Model.Surname</b></p>
+                                            <p>E-Mail        :<b> @Model.Email</b></p>
+                                            <p>Yas        :<b> @Model.Age</b></p>
+                                            <p>Dogum Tar. :<b> @Model.DateOfBirth</b></p>
+                                            <p>Telefon No :<b> @Model.PhoneNumber</b></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+

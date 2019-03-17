@@ -1,0 +1,241 @@
+﻿
+@{
+    ViewBag.Title = "LastSurvey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@{
+    ViewBag.Title = "FirstSurvey";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        <input type="checkbox" id="s1">Biri bana ders verir gibi bir şeyler anlatırsa başka dünyalara dalarım</input><br />
+                        <input type="checkbox" id="s2">Temiz ve düzenli bir sıraya sahip olmak isterim</input><br />
+                        <input type="checkbox" id="s3">Sözel yönergeleri kullanamam, haritaya gereksinim duyarım</input><br />
+                        <input type="checkbox" id="s4">Duyduğum ama görmediğim yönergelere dikkat ekmekte zorlanırım</input><br />
+                        <input type="checkbox" id="s5">Resimli bulmaca çözmeyi severim</input><br />
+                        <input type="checkbox" id="s6">Sessiz okumayı severim</input><br />
+                        <input type="checkbox" id="s7">Sözcükleri hatasız yazarım</input><br />
+                        <input type="checkbox" id="s8">Gördüklerimi iyi hatırlarım</input><br />
+                        <input type="checkbox" id="s9">Olaylar ve/ya konular şematize edilirse daha iyi anlarım</input><br />
+                        <input type="checkbox" id="s10">Konuşmacının ağzını izlerim</input><br />
+                        <input type="checkbox" id="s11">Resimli roman okumayı severim</input><br />
+                        <input type="checkbox" id="s12">Şarkı sözlerini hatırlamakta zorlanırım</input><br />
+                        <input type="checkbox" id="s13">Okunmakta olan bir metnin kopyasını takip etmezsem anlamakta zorlanırım</input><br />
+                        <input type="checkbox" id="s14">Sözel tariflerin tekrarlanmasını isterim</input><br />
+                        <input type="checkbox" id="s15">Kendi kendime düşünüp, çalışarak öğrenmeyi severim</input><br />
+                        <input type="checkbox" id="s16">Derslerde not tutmayı tercih ederim</input><br />
+                        <input type="checkbox" id="s17">Boş zamanlarımda okumayı severim</input><br />
+                        <input type="checkbox" id="s18">Başkalarının ne yaptığını gözlerim</input><br />
+                        <input type="checkbox" id="s19">Radyo ve televizyonu yüksek sesle dinlerim</input><br />
+                        <input type="checkbox" id="s20">Telefonda konuşmayı sevmem, yüz yüze konuşmayı tercih ederim</input><br />
+                        <input type="checkbox" id="s21">Kendi kendime konuşurum</input><br />
+                        <input type="checkbox" id="s22">Bütün yanlışlarımı öğretmenin anlatarak düzeltmesini isterim</input><br />
+                        <input type="checkbox" id="s23">Okurken parmağımla takip ederim</input><br />
+                        <input type="checkbox" id="s24">Sınıfta arkadaşlarımla tartışarak ve sohbet ederek öğrenmeyi severim</input><br />
+                        <input type="checkbox" id="s25">Okurken kağıda çok yaklaşırım</input><br />
+                        <input type="checkbox" id="s26">Gözlerimi ellerime dayarım</input><br />
+                        <input type="checkbox" id="s27">Daha iyi öğrenmek için müzik ve ritmi severim</input><br />
+                        <input type="checkbox" id="s28">Sınıfta çok fazla konuşurum</input><br />
+                        <input type="checkbox" id="s29">Boş zamanlarımda arkadaşlarımla konuşmayı ve şaka yapmayı severim</input><br />
+                        <input type="checkbox" id="s30">Genellikle grafikler, sembol ve simgeler benim öğrenmemi kolaylaştırmaz</input><br />
+                        <input type="checkbox" id="s31">Yüksek sesle okumayı severim</input><br />
+                        <input type="checkbox" id="s32">Yazılı karikatürleri tercih ederim</input><br />
+                        <input type="checkbox" id="s33">Hikaye, şiir ve/ya kitap kasetleri dinlemeyi severim</input><br />
+                        <input type="checkbox" id="s34">Anlatmayı yazmaya tercih ederim</input><br />
+                        <input type="checkbox" id="s35">Görsel ve sözcük hatırlama hafızam iyi değildir</input><br />
+                        <input type="checkbox" id="s36">Kendi kendime çalışmaktansa öğretmeni dinleyerek öğrenmeyi tercih ederim</input><br />
+                        <input type="checkbox" id="s37">Bir konu bana okunursu kendi okuduğumdan daha iyi anlarım</input><br />
+                        <input type="checkbox" id="s38">Kopyalanacak bir şey olmadan kolay çizemem</input><br />
+                        <input type="checkbox" id="s39">Haritalardan çok sözel tarifleri ve yönergeleri tercih ederim</input><br />
+                        <input type="checkbox" id="s40">Sessizliğe dayanamam… ya ben ya da diğerlerinin konuşmasını isterim</input><br />
+                        <input type="checkbox" id="s41">Boş bir kağıda sütunlar çizmem istendiğinde kağıdı katlarım</input><br />
+                        <input type="checkbox" id="s42">Ellerimi kullanabileceğim bir şeyler yapmaktan hoşlanırım</input><br />
+                        <input type="checkbox" id="s43">Sandalyede otururken sallanırım ya da bacağımı sallarım</input><br />
+                        <input type="checkbox" id="s44">Defterimin içini genellikle resimlerle, şekillerle süslerim, karalama yaparım</input><br />
+                        <input type="checkbox" id="s45">Kalemimi elimde döndürürüm, masada tempo tutarım</input><br />
+                        <input type="checkbox" id="s46">Öğretmenlerim asla çalışmadığımı düşünürler</input><br />
+                        <input type="checkbox" id="s47">Öğretmenlerim sınıfta çok fazla hareket ettiğimi düşünürler</input><br />
+                        <input type="checkbox" id="s48">Genellikle hiperaktif olduğum söylenir</input><br />
+                        <input type="checkbox" id="s49">Çalışırken sık sık ara verir, başka şeyler yaparım</input><br />
+                        <input type="checkbox" id="s50">Arkadaşlarıma el şakası yapmaya bayılırım</input><br />
+                        <input type="checkbox" id="s51">Kapının üst çerçevesine asılarak odaya atlamak isterim</input><br />
+                        <input type="checkbox" id="s52">Aktif olarak katıldığım etkinlikleri severim</input><br />
+                        <input type="checkbox" id="s53">Bir şeyi görmek ya da duymak yetmez, dokunmak isterim</input><br />
+                        <input type="checkbox" id="s54">Her şeye dokunmak isterim</input><br />
+                        <input type="checkbox" id="s55">Objeleri biriktirmeyi severim</input><br />
+                        <input type="checkbox" id="s56">Sınıfta tahta silmeyi, pencere ya da kapı açıp kapatmayı hep ben yapmak isterim</input><br />
+                        <input type="checkbox" id="s57">Kürdanları, kibritleri küçük parçalara ayırırım</input><br />
+                        <input type="checkbox" id="s58">Aletleri açar, içini söker, sonra yine bir araya getirmeye çalışırım</input><br />
+                        <input type="checkbox" id="s59">Genellikle ellerimi kullanarak ve hızlı konuşurum</input><br />
+                        <input type="checkbox" id="s60" name="aa" value="Başkalarının sözünü sık sık keserim">Başkalarının sözünü sık sık keserim</input><br /> <br />
+
+
+                        <button type="submit" id="btnSurvey" onclick="GetCheckedState()" class="btn btn-default btn-sm">
+                            Gönder
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
+
+
+
+<script>
+    function GetCheckedState() {
+
+
+        var S1 = document.getElementById("s1").checked;
+        var S2 = document.getElementById("s2").checked;
+        var S3 = document.getElementById("s3").checked;
+        var S4 = document.getElementById("s4").checked;
+        var S5 = document.getElementById("s5").checked;
+        var S6 = document.getElementById("s6").checked;
+        var S7 = document.getElementById("s7").checked;
+        var S8 = document.getElementById("s8").checked;
+        var S9 = document.getElementById("s9").checked;
+        var S10 = document.getElementById("s10").checked;
+        var S11 = document.getElementById("s11").checked;
+        var S12 = document.getElementById("s12").checked;
+        var S13 = document.getElementById("s13").checked;
+        var S14 = document.getElementById("s14").checked;
+        var S15 = document.getElementById("s15").checked;
+        var S16 = document.getElementById("s16").checked;
+        var S17 = document.getElementById("s17").checked;
+        var S18 = document.getElementById("s18").checked;
+        var S19 = document.getElementById("s19").checked;
+        var S20 = document.getElementById("s20").checked;
+        var S21 = document.getElementById("s21").checked;
+        var S22 = document.getElementById("s22").checked;
+        var S23 = document.getElementById("s23").checked;
+        var S24 = document.getElementById("s24").checked;
+        var S25 = document.getElementById("s25").checked;
+        var S26 = document.getElementById("s26").checked;
+        var S27 = document.getElementById("s27").checked;
+        var S28 = document.getElementById("s28").checked;
+        var S29 = document.getElementById("s29").checked;
+        var S30 = document.getElementById("s30").checked;
+        var S31 = document.getElementById("s31").checked;
+        var S32 = document.getElementById("s32").checked;
+        var S33 = document.getElementById("s33").checked;
+        var S34 = document.getElementById("s34").checked;
+        var S35 = document.getElementById("s35").checked;
+        var S36 = document.getElementById("s36").checked;
+        var S37 = document.getElementById("s37").checked;
+        var S38 = document.getElementById("s38").checked;
+        var S39 = document.getElementById("s39").checked;
+        var S40 = document.getElementById("s40").checked;
+        var S41 = document.getElementById("s41").checked;
+        var S42 = document.getElementById("s42").checked;
+        var S43 = document.getElementById("s43").checked;
+        var S44 = document.getElementById("s44").checked;
+        var S45 = document.getElementById("s45").checked;
+        var S46 = document.getElementById("s46").checked;
+        var S47 = document.getElementById("s47").checked;
+        var S48 = document.getElementById("s48").checked;
+        var S49 = document.getElementById("s49").checked;
+        var S50 = document.getElementById("s50").checked;
+        var S51 = document.getElementById("s51").checked;
+        var S52 = document.getElementById("s52").checked;
+        var S53 = document.getElementById("s53").checked;
+        var S54 = document.getElementById("s54").checked;
+        var S55 = document.getElementById("s55").checked;
+        var S56 = document.getElementById("s56").checked;
+        var S57 = document.getElementById("s57").checked;
+        var S58 = document.getElementById("s58").checked;
+        var S59 = document.getElementById("s59").checked;
+        var S60 = document.getElementById("s60").checked;
+
+
+        $.ajax({
+            url: "/Home/LastSurvey",
+            method: "POST",
+            data: {
+                s1: S1,
+                s2: S2,
+                s3: S3,
+                s4: S4,
+                s5: S5,
+                s6: S6,
+                s7: S7,
+                s8: S8,
+                s9: S9,
+                s10: S10,
+                s11: S11,
+                s12: S12,
+                s13: S13,
+                s14: S14,
+                s15: S15,
+                s16: S16,
+                s17: S17,
+                s18: S18,
+                s19: S19,
+                s20: S20,
+                s21: S21,
+                s22: S22,
+                s23: S23,
+                s24: S24,
+                s25: S25,
+                s26: S26,
+                s27: S27,
+                s28: S28,
+                s29: S29,
+                s30: S30,
+                s31: S31,
+                s32: S32,
+                s33: S33,
+                s34: S34,
+                s35: S35,
+                s36: S36,
+                s37: S37,
+                s38: S38,
+                s39: S39,
+                s40: S40,
+                s41: S41,
+                s42: S42,
+                s43: S43,
+                s44: S44,
+                s45: S45,
+                s46: S46,
+                s47: S47,
+                s48: S48,
+                s49: S49,
+                s50: S50,
+                s51: S51,
+                s52: S52,
+                s53: S53,
+                s54: S54,
+                s55: S55,
+                s56: S56,
+                s57: S57,
+                s58: S58,
+                s59: S59,
+                s60: S60
+
+            }
+        }).done(function (data) {
+            if (data.result) {
+                load("/Home/index");
+            }
+            else {
+
+            }
+        }).fail(function () {
+
+        });
+    }
+</script>

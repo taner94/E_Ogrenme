@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{91812EA9-5AD9-4CC4-A8DB-B884526DEB74}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CodeNight.BusinessLayer</RootNamespace>
+    <AssemblyName>CodeNight.BusinessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\ManagerBase.cs" />
+    <Compile Include="AuthorManager.cs" />
+    <Compile Include="SurveyLastManager.cs" />
+    <Compile Include="CommentManager.cs" />
+    <Compile Include="CourseManager.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Result\BusinessLayerResult.cs" />
+    <Compile Include="ShareManager.cs" />
+    <Compile Include="SurvayFirstManager.cs" />
+    <Compile Include="TypeOfCourseManager.cs" />
+    <Compile Include="UserCourseManager.cs" />
+    <Compile Include="UserManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CodeNight.DataAccessLayer\EOgrenme.DataAccessLayer.csproj">
+      <Project>{D7CD9506-4866-4B5D-89C2-EC382FB17DCD}</Project>
+      <Name>EOgrenme.DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CodeNight.Entities\EOgrenme.Entities.csproj">
+      <Project>{703fa0c4-e7e1-4c50-8323-dffd2a761152}</Project>
+      <Name>EOgrenme.Entities</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Common\EOgrenme.Common.csproj">
+      <Project>{e8905a31-01bb-43b8-a990-99fc4c6a3c16}</Project>
+      <Name>EOgrenme.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\EOgrenme.Core.csproj">
+      <Project>{8b21c1ea-9d9c-457b-a64f-a7b43a951adb}</Project>
+      <Name>EOgrenme.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

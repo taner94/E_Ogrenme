@@ -1,0 +1,407 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using EOgrenme.Models
+@using EOgrenme.Entities
+@model List<Survey>
+
+
+<div style="float:left;margin:20px;">
+
+    <div id="content" class="mw-body">
+        <div id="bodyContent" class="mw-body-content">
+            <div id="mw-content-text" class="mw-content-ltr" dir="ltr" lang="tr">
+                <div class="mw-parser-output">
+                    <h3><span id="E-&ouml;ğrenmenin_olumlu_y&ouml;nleri" class="mw-headline">E-&ouml;ğrenmenin olumlu y&ouml;nleri</span></h3>
+                    <p>G&uuml;n&uuml;m&uuml;zde gittik&ccedil;e yaygınlaşan ve &ccedil;oğu &uuml;niversitenin de hızla altyapı hazırlıklarını tamamladığı e-&ouml;ğrenmenin bir&ccedil;ok olumlu y&ouml;n&uuml; vardır. Bunlardan bazıları:</p>
+                    <ul>
+                        <li>&Ouml;ğrenci merkezlidir.</li>
+                        <li>&Ouml;ğrenci konuyu &ouml;ğrenene kadar, konu &uuml;zerinde &ccedil;alışabilir.</li>
+                        <li>Zaman sınırsızdır.</li>
+                        <li>Herkes kendi &ouml;ğrenme hızında &ouml;ğrenebilir.</li>
+                        <li>&Ouml;ğrenci, konuyu anlamadığı zaman, iletişim ara&ccedil;ları ile &ouml;ğretmen ve diğer &ouml;ğrenciler ile bağlantı kurabilir.</li>
+                        <li>D&uuml;nyanın diğer ucundaki bir kişinin bilgilerinden faydalanılabilir.</li>
+                        <li>Bağlantılar aracılığıyla, doğru ve istenilen kaynağa kısa s&uuml;rede erişilir.</li>
+                        <li>Eğitim maliyetlerini dikkate değer anlamda d&uuml;ş&uuml;rmektedir.</li>
+                        <li>Zaman ve mekandan bağımsızdır.</li>
+                        <li>Kişi kendini en rahat hissettiği zaman ve mekanda konuyu &ouml;ğrenebilir.</li>
+                        <li>&Ouml;ğrenim faaliyeti daha zevkli olabilir.</li>
+                        <li>&Ouml;ğrenim materyalleri, hızlı değişen koşullara g&ouml;re, kısa s&uuml;rede g&uuml;ncellenebilir.</li>
+                        <li>Kişisel testler ile &ouml;ğrenci kendi kendini sınayabilir.</li>
+                        <li>Konunun anlaşılıp anlaşılmadığına dair geri bildirimin hızlı bir şekilde yapılması</li>
+                    </ul>
+                    <p>motivasyonu artırır.</p>
+                    <ul>
+                        <li>Kişinin t&uuml;m &ouml;ğrenim faaliyetleri raporlanabilir.</li>
+                        <li>Her t&uuml;r altyapıdan ve toplumun farklı kesimlerinden gelen &ouml;ğrencilere fırsat eşitliği.</li>
+                    </ul>
+                    <h3><span id="E-.C3.B6.C4.9Frenmenin_olumsuz_y.C3.B6nleri"></span><span id="E-&ouml;ğrenmenin_olumsuz_y&ouml;nleri" class="mw-headline">E-&ouml;ğrenmenin olumsuz y&ouml;nleri</span></h3>
+                    <p>Olumlu y&ouml;nleri olduğu gibi e-&ouml;ğrenme bazı olumsuz &ouml;zelliklere de sahiptir. Bunlar&nbsp;:</p>
+                    <ul>
+                        <li>Eğitmenler, etkili birer e-&ouml;ğrenmenin nasıl olacağını &ouml;ğrenmek zorundadırlar.</li>
+                        <li>Eğitmenler i&ccedil;in geleneksel olan ders i&ccedil;eriğini &ccedil;evrim i&ccedil;i ortama aktarmak zordur.</li>
+                        <li>Bireysel geri bildirim sağlama konusunda eğitmenler a&ccedil;ısından, &ccedil;ok fazla zaman alır (&ccedil;&uuml;nk&uuml; aktif bir katılım i&ccedil;in daha &ccedil;ok &ouml;ğrenci gereklidir).</li>
+                        <li>&Ouml;ğrencilerin ve eğitim sağlayanların ara&ccedil;-gere&ccedil; ihtiya&ccedil;ları,</li>
+                        <li>&Ouml;ğrenciler ve eğitmenler i&ccedil;in teknik eğitim ve destek,</li>
+                        <li>Akademik anlamdaki d&uuml;r&uuml;stl&uuml;k,</li>
+                    </ul>
+                    <p>Online eğitim alan &ouml;ğrenciler i&ccedil;in;</p>
+                    <ul>
+                        <li>&Ouml;l&ccedil;me ve değerlendirmelerin t&uuml;rleri ve etkililiği</li>
+                        <li>Etkileşim eksikliği</li>
+                    </ul>
+                    <h3><span id="E-.C3.B6.C4.9Frenme_.C3.A7e.C5.9Fitleri"></span><span id="E-&ouml;ğrenme_&ccedil;eşitleri" class="mw-headline">E-&ouml;ğrenme &ccedil;eşitleri</span></h3>
+                    <p>Alanyazına bakıldığında farklı kavramlar ile karşılaşılmaktadır. Araştırmacılar; eğitim teknolojilerinin gelişimine g&ouml;re yeni kavramlar ortaya &ccedil;ıkarmıştır. Aydın (2002) &lsquo;a g&ouml;re alanyazında; web destekli &ouml;ğretim (web based instruction), eşzamanlı &ouml;ğretim (syncronize instruction), eşzamansız &ouml;ğretim (asyncronize instruction), sanal eğitim (virtual education), bilgisayar destekli uzaktan eğitim (computer based distance education), bilgisayar ortamlı/destekli iletişim (computer-mediated communicaitons), internetle eğitim İnternete dayalı/destekli eğitim (İnternet based/aided education), &ccedil;evrim i&ccedil;i eğitim (online education) kavramları ile sık karşılaşılmaktadır.</p>
+                    <p>E-&ouml;ğrenme &ccedil;eşitleri yer ve zaman a&ccedil;ısından ele alındığında değişik şekillerde tanımlanabilir. Bunları bir tablo şeklinde g&ouml;sterebiliriz.</p>
+                    <h3><span id="E-.C3.B6.C4.9Frenme_ara.C3.A7lar.C4.B1"></span><span id="E-&ouml;ğrenme_ara&ccedil;ları" class="mw-headline">E-&ouml;ğrenme ara&ccedil;ları</span></h3>
+                    <p>E-&ouml;ğrenmenin dizaynı, geliştirilmesi ve ger&ccedil;ekleştirilmesi, insan kaynaklarının dışında donanım ve yazılım ara&ccedil;ları gerektirmektedir. Donanım ara&ccedil;ları genelde multimedia uygulamalarını kullanabilen ve internet tarayıcısı olan bir kişisel bilgisayarı gerektirir. Tabi bunların kullanılabilmesi i&ccedil;in ağ sağlayıcılar ve kullanıcıların s&uuml;rekli ulaşabileceği internet sunucular da gerekmektedir. Yazılım ara&ccedil;ları ise genellikle &ccedil;eşitli web d&uuml;zenleme ve grafik ara&ccedil;larını i&ccedil;erir. Bunlar basit yapılı ya da karmaşık olabilirler. Brandon Hall'un yaptığı son &ccedil;alışma yaygın olarak kullanılan bazı ara&ccedil;ları aşağıdaki gibi g&ouml;stermektedir.</p>
+                    <p>Adobe Flash&trade;</p>
+                    <p>Adobe Dreamweaver&trade;</p>
+                    <p>Macromedia Authorware&trade;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL2JvdGUuYmFsaWtlc2lyLmVkdS50ci9-Ym90ZTAyMTkvYm90ZV9maWxlc19hdXRob3J3YXJlL2luZGV4Lmh0bWw" rel="nofollow">Nedir ve &Ouml;rnekler</a></p>
+                    <p>TrainerSoft from Outstart&trade;</p>
+                    <p>Lectora Publisher&trade;</p>
+                    <p>Adobe Captivate&trade;</p>
+                    <p>Adobe Presenter&trade;</p>
+                    <p>Articulate&trade;</p>
+                    <p>Raptivity&trade;</p>
+                    <p>Camsmith Camtasia&trade;</p>
+                    <p>En &ccedil;ok tanınan yazılım sim&uuml;lasyon ara&ccedil;ları ise aşağıdaki gibidir.</p>
+                    <p>Adobe Captivate&trade;</p>
+                    <p>Techsmith Camtasia&trade;</p>
+                    <p>OnDemand&trade; (Global Knowledge)</p>
+                    <p>FireFly&trade; (KnowledgePlant)</p>
+                    <p>Assima&trade;</p>
+                    <p>STT Trainer&trade; (STT: A Division of Kaplan)</p>
+                    <p>InfoPak Simulator&trade; (RWD Technologies)&nbsp;<sup id="ref_1" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfMQ">[1]</a></sup></p>
+                    <h2><span id="E-.C3.96.C4.9Frenmenin_Tarihi_ve_E-.C3.96.C4.9Frenmedeki_geli.C5.9Fmeler"></span><span id="E-&Ouml;ğrenmenin_Tarihi_ve_E-&Ouml;ğrenmedeki_gelişmeler" class="mw-headline">E-&Ouml;ğrenmenin Tarihi ve E-&Ouml;ğrenmedeki gelişmeler</span></h2>
+                    <p>10&ndash;15 yıldır daha iyi bilinmekte olan e-&ouml;ğrenme, 10&ndash;15 yıldan fazla bir ge&ccedil;mişe sahiptir.</p>
+                    <h3><span id="1960.27larda_E-.C3.B6.C4.9Frenme"></span><span id="1960'larda_E-&ouml;ğrenme" class="mw-headline">1960'larda E-&ouml;ğrenme</span></h3>
+                    <p>Bilgisayarlar i&ccedil;in &ouml;nemli g&ouml;r&uuml;len rollerden &ccedil;oğunun 1960lı yıllarda a&ccedil;ık&ccedil;a s&ouml;ylenmiş olduğu iddia edilebilir. Bilgisayarlar icat edildikten biraz sonra, ruh bilimciler ve eğitimciler, bilgisayarların eğitimsel g&uuml;&ccedil;lerine dikkat &ccedil;ekmişlerdir. Bilgisayar tabanlı &ouml;ğretim gelişimleri, sırasıyla, &ouml;ğrenmenin ve &ouml;ğretmenin temel kanılarının otomatikleşmesine odaklanmıştır. Ne var ki, bilgisayar tabanlı eğitimin ilk grubunun teknik bilim adamları iki gruba ayrılmıştır: uygulamalı bilim adamları (m&uuml;hendisler), ileri d&uuml;zey araştırmacılar.<sup id="ref_2" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfMg">[2]</a></sup><sup id="ref_3" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfMw">[3]</a></sup></p>
+                    <h3><span id="Bilgisayar_tabanl.C4.B1_.C3.B6.C4.9Fretim"></span><span id="Bilgisayar_tabanlı_&ouml;ğretim" class="mw-headline">Bilgisayar tabanlı &ouml;ğretim</span></h3>
+                    <p>1960&rsquo;lar, daha sonra eğitim alanında geliştirilecek politikaları (kilometre taşı sayılan olayları) doğurdu. Her başarılı teknolojik yenilikle birlikte, yeni yetenekler ve şekiller teknolojinin desteklediği &ouml;ğrenme işlemini artırmayı ulaşılır h&acirc;le getirdi. Aşağıdaki zaman &ccedil;izelgesi İngiltere&rsquo;deki bazı &ouml;nemli olayları listelemektedir:</p>
+                    <ul>
+                        <li>1963: The British Computer Society(İngiltere Bilgisayar Derneği), Schools&rsquo; Committee adındaki okul birliğini, bilgisayar eğitimini okullarda ilerletmek i&ccedil;in kurdu.</li>
+                        <li>1965: İlk bilgisayar, bir İngiliz okuluna kuruldu.</li>
+                        <li>1967: The National Council for Educational Technology(NCET) kuruldu.</li>
+                        <li>1969: NCET eğitimde bilgisayar kullanımı ile ilgili &uuml;&ccedil; adet rapor yayınladı.</li>
+                        <li>1969: The Scottish Office, &ldquo;Okulda Bilgisayar&rdquo; adında ge&ccedil;ici bir rapor yayınladı.</li>
+                    </ul>
+                    <p>10 yıl s&uuml;re zarfında, bu konuda &ccedil;alışan bilim adamları grubu, ara&ccedil;larını geliştirip d&uuml;zenlediler. NCET, yaptığı &ccedil;alışmaların birinde&nbsp;<a class="new" title="Bilgisayar tabanlı &ouml;ğrenme (sayfa mevcut değil)" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPUJpbGdpc2F5YXJfdGFiYW5sJUM0JUIxXyVDMyVCNiVDNCU5RnJlbm1lJmFjdGlvbj1lZGl0JnJlZGxpbms9MQ">bilgisayar tabanlı &ouml;ğrenme</a>&nbsp;sistemlerini konu almıştır. Buna y&ouml;nelik hazırladığı raporda ge&ccedil;en bazı ifadeler aşağıdaki gibidir:</p>
+                    <ul>
+                        <li>&Ouml;ğrencilerin kullanımı i&ccedil;in bilgi depolama,</li>
+                        <li>&Ouml;ğrencileri bilgisayar konusunda eğitme,</li>
+                        <li>Karışık durumları (zaman alacak, pahalı olacak, imk&acirc;nsız) &ouml;rneklendirme.<sup id="ref_4" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfNA">[4]</a></sup></li>
+                    </ul>
+                    <h3><span id="Ak.C4.B1ll.C4.B1_yard.C4.B1m_sistemi"></span><span id="Akıllı_yardım_sistemi" class="mw-headline">Akıllı yardım sistemi</span></h3>
+                    <p>İkinci grup araştırmacılar, insan biliş ve &ouml;ğrenmesini g&ouml;stermek i&ccedil;in, bilgi-yapısal- y&ouml;nelimli yaklaşıma odaklandılar. Becerileri nasıl &ouml;ğrenip, onlarda ne şekilde uzmanlaştığımıza dair yapay zeka &ccedil;alışmalarına dayanan bu yaklaşım, Akıllı yardım sisteminin (ITS) gelişmesine &ouml;nc&uuml; oldu. Akıllı yardım sisteminin işlevleri geleneksel yaklaşımlardan farklıdır. Bu işlevler, &ouml;ğrencinin gereksinimi doğrultusundager&ccedil;ek zamanda &ouml;ğrenim oluşturmak i&ccedil;in Akıllı yardım sistemine ihtiya&ccedil; duyarlar. Ayrıca, Akıllı yardım sistemi teknoloji ve kullanıcı arasında tartışmayı veya diyalogu sağlamalıdır. Ancak, bazı fakt&ouml;rler Akıllı yardım sistemi teknolojisinin gelişimini engellemiştir. İnsan bilişinin bilimi nispeten olgunlaşmamıştı ve karmaşık modelleme ve kural tabanlı sistemlerin &ouml;nemli hesaplama g&uuml;&ccedil;leri gerektirmesi bu fakt&ouml;rler arasındadır.Akıllı yardım sistemleri kontrol mantığını &ouml;ğretimsel i&ccedil;erikten ayırma eğilimiyle nitelendirilmiştir.&nbsp;<sup id="ref_5" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfNQ">[5]</a></sup></p>
+                    <h3><span id="World_Wide_Web.27in_do.C4.9Fu.C5.9Fu"></span><span id="World_Wide_Web'in_doğuşu" class="mw-headline">World Wide Web'in doğuşu</span></h3>
+                    <p>Internet ve WWW gelişmekte olan her iki grup i&ccedil;in g&uuml;ndemi baştan tanımlamıştır. Internet geliştik&ccedil;e , bilgiye ve veriye kolay erişim sağlayan ortak standartlar &uuml;zerine kurulmuş , geniş erişilebilir iletişim yapısı sağladı. Bilgisayar tabanlı &ouml;ğretim sistemleri ,sunucu tabanlı &ouml;ğrenme y&ouml;netim sistemleri ortaya &ccedil;ıktık&ccedil;a, i&ccedil;erik ve kontrol&uuml; ayırarak, CD-Romdan internete doğrudan adaptasyondan web tabanlı yazılım diline ilerlemiştir.&nbsp;<sup id="ref_6" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfNg">[6]</a></sup></p>
+                    <h3><span id="21._y.C3.BCzy.C4.B1lda_E-.C3.B6.C4.9Frenme"></span><span id="21._y&uuml;zyılda_E-&ouml;ğrenme" class="mw-headline">21. y&uuml;zyılda E-&ouml;ğrenme</span></h3>
+                    <p>Hızla gelişen bilim ve teknoloji etkisini eğitim alanında da g&ouml;stermiştir. 20. y&uuml;zyılın sonlarında başlayan e-&ouml;ğrenme, 21. y&uuml;zyılın başlarında &ouml;zellikle İngiltere ve Avustralya gibi bazı &uuml;lkelerde ileri seviyede kullanılmaktadır. &Ouml;zellikle 21. y&uuml;zyılın başlarında geleneksel (y&uuml;z y&uuml;ze) eğitimden yeni y&ouml;ntem eğitim sistemi sayılan uzaktan eğitime ge&ccedil;iş s&uuml;reci yaşanmaktadır. Artık y&uuml;z y&uuml;ze eğitimin varlığını devam ettirebilmesi konusunda insanların kafasında sorular y&uuml;kselirken e-eğtimin insan hayatına her ge&ccedil;en g&uuml;n daha etkili bir bi&ccedil;imde girdiği ise tartışma gerektirmeyen bir konudur. 21. y&uuml;zyıl y&uuml;z y&uuml;ze ve uzaktan eğitimi bir arada yaşadığımız ilk y&uuml;zyıl olmakla birlikte son y&uuml;zyıl olma olasılığı da olduk&ccedil;a y&uuml;ksektir.</p>
+                    <h2><span id="E-.C3.96.C4.9Frenmede_uygulamal.C4.B1_.C3.B6rnekler"></span><span id="E-&Ouml;ğrenmede_uygulamalı_&ouml;rnekler" class="mw-headline">E-&Ouml;ğrenmede uygulamalı &ouml;rnekler</span></h2>
+                    <h3><span id="E.C4.9Fitim_tabanl.C4.B1"></span><span id="Eğitim_tabanlı" class="mw-headline">Eğitim tabanlı</span></h3>
+                    <p>E-&ouml;ğrenme teknoloji tabanlı bir&ccedil;ok eğitim bi&ccedil;imini (bilgisayar tabanlı &ouml;ğrenme,&nbsp;<a class="mw-redirect" title="Web tabanlı &ouml;ğrenme" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvV2ViX3RhYmFubCVDNCVCMV8lQzMlQjYlQzQlOUZyZW5tZQ">web tabanlı &ouml;ğrenme</a>,&nbsp;<a class="mw-redirect" title="Sanal sınıflar" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvU2FuYWxfcyVDNCVCMW4lQzQlQjFmbGFy">sanal sınıflar</a>) kapsayan geniş bir uygulama s&uuml;recidir.<sup id="ref_7" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfNw">[7]</a></sup>&nbsp;Bu durum g&ouml;z &ouml;n&uuml;ne alınarak, aşağıdaki &ouml;rnek uygulamada, e-&ouml;ğrenmenin kapsadığı eğitim bi&ccedil;imlerinden biri olan web-tabanlı e-&ouml;ğrenme sunulmaktadır. Burada tanıtılacak &uuml;r&uuml;n sadece &ouml;rnek ama&ccedil;lı kullanılacaktır. Web-tabanlı e-&ouml;ğrenme s&uuml;reci beş aşamadan oluşmaktadır. Bu aşamalar sırasıyla, e-sorgulama, e-y&ouml;netim, e-kayıtlama, e-ders ve e-mezuniyettir. Aşağıdaki uygulamalı &ouml;rnekte bu aşamalardan e-ders kısmına değinilmektedir.</p>
+                    <p>&nbsp;</p>
+                    <div class="thumb tright">
+                        <div class="thumbinner">
+                            <a class="image" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPURvc3lhOkUtT2dyZW5tZVV5Z3VsYW1hc2kxLnBuZyZmaWxldGltZXN0YW1wPTIwMDgwODExMDYwNzQ5Jg"><img class="thumbimage" src="http://www.wikizeroo.net/index.php?q=aHR0cDovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS90ci90aHVtYi83LzdjL0UtT2dyZW5tZVV5Z3VsYW1hc2kxLnBuZy8zMDBweC1FLU9ncmVubWVVeWd1bGFtYXNpMS5wbmc" srcset="//upload.wikimedia.org/wikipedia/tr/thumb/7/7c/E-OgrenmeUygulamasi1.png/450px-E-OgrenmeUygulamasi1.png 1.5x, //upload.wikimedia.org/wikipedia/tr/thumb/7/7c/E-OgrenmeUygulamasi1.png/600px-E-OgrenmeUygulamasi1.png 2x" alt="" width="300" height="294" data-file-width="747" data-file-height="732" /></a>
+                            <div class="thumbcaption">
+                                <div class="magnify">&nbsp;</div>
+                                E-dersin giriş sayfasıdır. Yandaki belirtilen konuların &uuml;zerine tıklayarak derslere ge&ccedil;iş yapılabilir.
+                            </div>
+                        </div>
+                    </div>
+                    <p>Bu web-tabanlı e-&ouml;ğrenme uygulaması &Ccedil;evrim i&ccedil;i M&uuml;hendislik Kursu Y&ouml;netim Sistemi<sup id="ref_8" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfOA">[8]</a></sup>&nbsp;tarafından hazırlanmıştır. Dersi alan &ouml;ğrenciler, &ouml;ğretim g&ouml;revlilerine danışarak şifre edindikten sonra sisteme giriş yaparak kurs sayfasından derslerine erişmektedirler. Şifre alarak derslerine erişmenin yanı sıra, misafir &ouml;ğrenciler de&nbsp;<a title="E-kitap" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS1raXRhcA">e-kitap</a>&nbsp;ve&nbsp;<a class="new" title="E-ders (sayfa mevcut değil)" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPUUtZGVycyZhY3Rpb249ZWRpdCZyZWRsaW5rPTE">e-ders</a>&nbsp;etkinliklerinden yararlanabilmektedirler. Kursun giriş sayfasında, ders bağlantılarıyla &ouml;ğrenciler, derslerine y&ouml;nlendirilebilmektedirler. &Ouml;ğrenciler &ouml;ğrenme sırasında, e-kitaplardan ve multimedya &uuml;r&uuml;nlerinden web sitesi aracılığıyla yararlanabilmektedir.</p>
+                    <p>&Ccedil;evrim i&ccedil;i &ouml;ğrenme ya da e-&Ouml;ğrenme; internet teknolojileri, TV, h&uuml;cre telefon vb. elektronik ortamlarda, eğitimin materyalinin metin, ses, hareketli video, stil grafikleri, animasyon gibi elektronik ara&ccedil;larla dağıtılması ile ger&ccedil;ekleşen &ouml;ğrenme ve &ouml;ğretim faaliyetine verilen addır. Kullanılan &ccedil;oklu ortam teknolojisi ile veri değiş-tokuşu ve işbirliği kolay sağlanmaktadır. &Ouml;ğrenciler konumlandırmadan uzaktırlar, kendi imkanları ile &ccedil;evrim i&ccedil;i derslere eş zamanlı veya eş zamansız olarak erişirler (&Ouml;zkul, 2003; Morrison, 2003; Wright, 2005; Gondon ve Lin, 2005; Watkins, 2005; Dabbagh ve Banan-Ritland, 2005).|12|.</p>
+                    <div class="thumb tleft">
+                        <div class="thumbinner">
+                            <a class="image" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPURvc3lhOkUtT2dyZW5tZVV5Z3VsYW1hc2kyLnBuZyZmaWxldGltZXN0YW1wPTIwMDgwODI2MDgyMzMxJg"><img class="thumbimage" src="http://www.wikizeroo.net/index.php?q=aHR0cDovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS90ci90aHVtYi81LzVkL0UtT2dyZW5tZVV5Z3VsYW1hc2kyLnBuZy8zMDBweC1FLU9ncmVubWVVeWd1bGFtYXNpMi5wbmc" srcset="//upload.wikimedia.org/wikipedia/tr/thumb/5/5d/E-OgrenmeUygulamasi2.png/450px-E-OgrenmeUygulamasi2.png 1.5x, //upload.wikimedia.org/wikipedia/tr/thumb/5/5d/E-OgrenmeUygulamasi2.png/600px-E-OgrenmeUygulamasi2.png 2x" alt="" width="300" height="295" data-file-width="736" data-file-height="723" /></a>
+                            <div class="thumbcaption">
+                                <div class="magnify">&nbsp;</div>
+                                E-dersin konu sayfasıdır. Yandaki belirtilen konuların &uuml;zerine tıklayarak b&ouml;l&uuml;mler arası ge&ccedil;iş yapılabilir.
+                            </div>
+                        </div>
+                    </div>
+                    <p>"&Ouml;ğretimin tasarımlanması s&uuml;recinde etkileşim ve etkileşim olanaklarının d&uuml;zenlenmesi &ccedil;ok &ouml;nemli bir basamaktır."<sup id="ref_9" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfOQ">[9]</a></sup>&nbsp;Bu durum temel alınarak, e-kitaplar ve e-dersler dinamik olup, &ouml;ğrencilere g&ouml;rsel ve yazınsal bilgiler sunulmuştur. Animasyonlarla konu i&ccedil;eriği zenginleştirilmiştir. Bu &ouml;ğrencilerin motivasyonunu artırmaktadır. B&ouml;ylece &ouml;ğrencilerin e-&ouml;ğrenme s&uuml;re&ccedil;lerine katkı sağlanmaktadır</p>
+                    <h3><span id=".C3.96rnek_web_servisleri"></span><span id="&Ouml;rnek_web_servisleri" class="mw-headline">&Ouml;rnek web servisleri</span></h3>
+                    <div class="thumb tleft">
+                        <div class="thumbinner">
+                            <a class="image" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPURvc3lhOk1ldHUyLnBuZyZmaWxldGltZXN0YW1wPTIwMDgwODExMDkyOTQwJg"><img class="thumbimage" src="http://www.wikizeroo.net/index.php?q=aHR0cDovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS90ci90aHVtYi8xLzFkL01ldHUyLnBuZy8zMDBweC1NZXR1Mi5wbmc" srcset="//upload.wikimedia.org/wikipedia/tr/thumb/1/1d/Metu2.png/450px-Metu2.png 1.5x, //upload.wikimedia.org/wikipedia/tr/thumb/1/1d/Metu2.png/600px-Metu2.png 2x" alt="Metu2.png" width="300" height="171" data-file-width="800" data-file-height="457" /></a>
+                            <div class="thumbcaption">&nbsp;</div>
+                        </div>
+                    </div>
+                    <div class="thumb tright">
+                        <div class="thumbinner">
+                            <a class="image" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPURvc3lhOk1ldHU0LnBuZyZmaWxldGltZXN0YW1wPTIwMDgwODExMDkzOTE0Jg"><img class="thumbimage" src="http://www.wikizeroo.net/index.php?q=aHR0cDovL3VwbG9hZC53aWtpbWVkaWEub3JnL3dpa2lwZWRpYS90ci90aHVtYi9mL2ZjL01ldHU0LnBuZy80MDBweC1NZXR1NC5wbmc" srcset="//upload.wikimedia.org/wikipedia/tr/thumb/f/fc/Metu4.png/600px-Metu4.png 1.5x, //upload.wikimedia.org/wikipedia/tr/f/fc/Metu4.png 2x" alt="Metu4.png" width="400" height="225" data-file-width="659" data-file-height="370" /></a>
+                            <div class="thumbcaption">&nbsp;</div>
+                        </div>
+                    </div>
+                    <p>Ekranda g&ouml;rd&uuml;ğ&uuml;m&uuml;z bu resimler bize e-&ouml;ğrenme konusunda bir &ouml;rnek olabilir. Bu sayfa O.D.T.&Uuml; online eğitim sayfasıdır. &Ouml;ğrenciler bu sayfayı kullanarak derslerin i&ccedil;eriğinde neler olduğunu, ders dışı yapılacak aktiviteleri ve ders notları gibi bir&ccedil;ok &ouml;zellikten kolaylıkla faydalanabilirler. Ayrıca forum sayfaları yardımıyla da &ouml;ğretmen ve arkadaşları ile de rahatlıkla iletişim kurabilirler. Bunu yapması i&ccedil;in kullanıcı hesabı ile sayfaya giriş yapması gerekiyor. Kullanıcı hesabı &ouml;ğrenciye okul tarafından verilir. Sayfaya girdikten sonra mevcut linkler sayesinde kolayca ders takibi yapılmış olacaktır.</p>
+                    <h2><span id="E-.C3.96.C4.9Frenmenin_gelece.C4.9Fi"></span><span id="E-&Ouml;ğrenmenin_geleceği" class="mw-headline">E-&Ouml;ğrenmenin geleceği</span></h2>
+                    <p>Mobil bilişim alanında gelişme olduğu gibi, bu gelişmeleri e-&ouml;ğrenme alanında kullanınca "Mobil &Ouml;ğrenme" alanı doğmuş oldu.Kısaca M-&ouml;ğrenme de denilebilir.</p>
+                    <h3><span id="Mobil_.C3.B6.C4.9Frenme"></span><span id="Mobil_&ouml;ğrenme" class="mw-headline">Mobil &ouml;ğrenme</span></h3>
+                    <p>M-&ouml;ğrenme , e-&ouml;ğrenme'den sonra ortaya &ccedil;ıkan, belirli bir alanda veya noktada durmayan, hareketli &ouml;ğrencilerin ya da taşınabilir mobil teknolojilerden (notebook, mobil telefonlar, PDA, DAP-IPod, WAP, GPRS, bluetooth) faydalanan &ouml;ğrencilerin &ouml;ğrenmeyi alış bi&ccedil;imi olarak tanımlanır. T&uuml;rkiye'de Anadolu &Uuml;niversitesi tarafından y&uuml;r&uuml;t&uuml;len a&ccedil;ık&ouml;ğretim e-&Ouml;ğrenme Portalında sunulan e-Kitap, e-Alıştırma, e-Sınav, e-Danışmanlık, e-Televizyon ve e-SesliKitap hizmetleri mevcuttur ve bu hizmetler &ccedil;evrim i&ccedil;i ve &ccedil;evrim dışı kullanılabilir. &ccedil;evrim dışı kullanılanlar; e-Televizyon ve e-SesliKitap hizmetleridir.&Ccedil;evrim i&ccedil;i olarak t&uuml;m hizmetler kullanılabilir. Tabii bu hizmetleri kullanmak i&ccedil;in Mobil &Ouml;ğrenme ara&ccedil;ları kullanılır ,bu ara&ccedil;ları ş&ouml;yle sıralayabiliriz&nbsp;;</p>
+                    <p>1.Diz&uuml;st&uuml; bilgisayarları&nbsp;<br />2.Tablet bilgisayarları&nbsp;<br />3.Telefonlu cep bilgisayarları&nbsp;<br />4.Cep bilgisayarları&nbsp;<br />5.Taşınabilir medya oynatıcıları&nbsp;<br />6.Taşınabilir MP3 &ccedil;alarlar&nbsp;<br />7.Akıllı telefonlar</p>
+                    <div class="google-auto-placed ap_container"><ins class="adsbygoogle adsbygoogle-noablate" data-ad-format="auto" data-ad-client="ca-pub-2402610068098892" data-adsbygoogle-status="done"><ins id="aswift_2_expand"><ins id="aswift_2_anchor"><iframe id="aswift_2" name="aswift_2" width="1038" height="200" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" allowfullscreen="allowfullscreen"></iframe></ins></ins></ins></div>
+                    <p>&ccedil;evrim dışı kullanım aşağıdaki tablo gibidir. &ccedil;evrim dışı kullanılan hizmetler, Mobil bilişim aygıtlarına indirilerek kullanılabilir.</p>
+                    <table class="wikitable sortable">
+                        <tbody>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>e-kitap</th>
+                                <th>e-televizyon</th>
+                                <th>e-alıştırma</th>
+                                <th>e-sınav</th>
+                                <th>e-danışmanlık</th>
+                                <th>e-sesli kitap</th>
+                            </tr>
+                            <tr>
+                                <td><a class="mw-redirect" title="Diz&uuml;st&uuml; Bilgisayar" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRGl6JUMzJUJDc3QlQzMlQkNfQmlsZ2lzYXlhcg">Diz&uuml;st&uuml; Bilgisayar</a></td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td><a class="mw-redirect" title="Tablet PC" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvVGFibGV0X1BD">Tablet PC</a></td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td>Cep Bilgisayarı(6340)</td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td>Cep Bilgisayarı(h2210)</td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td><a class="mw-redirect" title="PMC" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvUE1D">PMC</a></td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td>Mp3 &Ccedil;alar</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td><a class="mw-redirect" title="Akıllı Telefon" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvQWslQzQlQjFsbCVDNCVCMV9UZWxlZm9u">Akıllı Telefon</a></td>
+                                <td>-</td>
+                                <td>+</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>&Ccedil;evrim i&ccedil;i kullanım aşağıdaki tablo gibidir.</p>
+                    <table class="wikitable sortable">
+                        <tbody>
+                            <tr>
+                                <th>&nbsp;</th>
+                                <th>e-kitap</th>
+                                <th>e-televizyon</th>
+                                <th>e-alıştırma</th>
+                                <th>e-sınav</th>
+                                <th>e-danışmanlık</th>
+                                <th>e-sesli kitap</th>
+                            </tr>
+                            <tr>
+                                <td><a class="mw-redirect" title="Diz&uuml;st&uuml; Bilgisayar" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRGl6JUMzJUJDc3QlQzMlQkNfQmlsZ2lzYXlhcg">Diz&uuml;st&uuml; Bilgisayar</a></td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td><a class="mw-redirect" title="Tablet PC" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvVGFibGV0X1BD">Tablet PC</a></td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+</td>
+                                <td>+</td>
+                            </tr>
+                            <tr>
+                                <td>Cep Bilgisayarı(6340)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Cep Bilgisayarı(h2210)</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><a class="mw-redirect" title="PMC" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvUE1D">PMC</a></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td>Mp3 &Ccedil;alar</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                            <tr>
+                                <td><a class="mw-redirect" title="Akıllı Telefon" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvQWslQzQlQjFsbCVDNCVCMV9UZWxlZm9u">Akıllı Telefon</a></td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                                <td>-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p>Mobil bilişim ara&ccedil;larının avantajları arasında taşınabilirlik, el yazısı kullanabilme, diğer aygıtlarla kolay iletişim kurabilme, herhangi bir yerde ve zamanda kullanılabilir durumda olma,bilgiye ihtiya&ccedil; duyulduğu anda erişebilme, ucuzluk ve yaygınlık sayılabilir.&nbsp;<sup id="ref_10" class="reference plainlinks nourlexpansion"><a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3RyLndpa2lwZWRpYS5vcmcvd2lraS9FLSVDMyVCNiVDNCU5RnJlbm1lI2VuZG5vdGVfMTA">[10]</a></sup></p>
+                    <p>Web tabanlı &ouml;ğrenme genellikle cevrimi&ccedil;i &ouml;ğrenme veya E-&ouml;ğrenme olarak bilinir. E-&ouml;ğrenme sistemlerinin alanı a&ccedil;ık, esnek ve dağıtılmış &ouml;ğrenme ortamlarıdır. E-&ouml;ğrenme Web-tabanlı Eğitim (WTE), Web-tabanlı &Ouml;ğrenme (WT&Ouml;), İnternet-tabanlı Eğitim Dağıtılmış &Ouml;ğrenme, Gelişmiş Dağıtılmış &Ouml;ğrenme ve online (&ccedil;evrimi&ccedil;i) eğitim gibi &ccedil;eşitli adlar altında anılmaktadır. A&ccedil;ık, esnek ve dağıtılmış &ouml;ğrenme sistemlerinin tasarlaması, geliştirmesi, uygulaması ve değerlendirmesi, &ouml;ğretim tasarımı ilkeleri ve &ccedil;evrimi&ccedil;i &ouml;ğrenme ortamlarının &ccedil;eşitli boyutlarına uygun olarak Web'in potansiyelinin nasıl kullanılabileceği konusunda derinlemesine analiz ve araştırma gerektirir. Ders i&ccedil;eriğinin &ccedil;evrimi&ccedil;i olarak yayınlanması buna en b&uuml;y&uuml;k sebep olarak g&ouml;sterilebilir.</p>
+                    <h2><span id="Web-tabanl.C4.B1_.C3.B6.C4.9Frenme_ortam.C4.B1nda_.C3.B6.C4.9Fretmen_ve_.C3.B6.C4.9Frencinin_rol.C3.BC"></span><span id="Web-tabanlı_&ouml;ğrenme_ortamında_&ouml;ğretmen_ve_&ouml;ğrencinin_rol&uuml;" class="mw-headline">Web-tabanlı &ouml;ğrenme ortamında &ouml;ğretmen ve &ouml;ğrencinin rol&uuml;</span></h2>
+                    <p>&Ouml;ğretmen &ouml;ğrenci ilişkisi geleneksel sınıf ortamında &ouml;ğrencinin başarısı a&ccedil;ısından her zaman &ouml;nemli bir fakt&ouml;r olmuştur. &Ouml;ğretmen her &ouml;ğrencinin derse g&ouml;sterdiği tepkiyi anlık olarak takip edebilmektedir. Bu s&uuml;re&ccedil; Web-tabanlı &ouml;ğrenmede aynı kolaylıkta uygulanamamaktadır. Bu y&uuml;zden her &ouml;ğrencinin kendine uygun &ouml;ğrenme şeklini keşfedebilmesi i&ccedil;in temel metotlar veya programlar dersin i&ccedil;eriğinde yer almalıdır. Değişik &ouml;ğrenim şekillerine sahip &ouml;ğrencilerin dersten yararlanabilmeleri i&ccedil;in &ouml;ğretmenler dersin i&ccedil;eriğini ve veriliş metotlarını tasarlarken değişik &ouml;ğretim şekillerini dersin i&ccedil;eriğine eklemelidir.</p>
+                    <h3><span id=".C3.96.C4.9Fretmenin_rol.C3.BC"></span><span id="&Ouml;ğretmenin_rol&uuml;" class="mw-headline">&Ouml;ğretmenin rol&uuml;</span></h3>
+                    <p>Web-tabanlı &ouml;ğrenimde &ouml;ğretmenin rol&uuml;n&uuml; tespit etmek amacıyla yapılan kapsamlı bir araştırma sonucunda &ouml;ğretmenin rol&uuml;&nbsp;:</p>
+                    <p>&bull; Teknik beceriler</p>
+                    <p>&bull; Kolaylaştırıcı beceriler</p>
+                    <p>&bull; Y&ouml;netimsel beceriler</p>
+                    <p>olarak &uuml;&ccedil; ana başlık altında toplanmıştır (Kemshal-Bell, 2001)</p>
+                    <h4><span id="Teknik_beceriler" class="mw-headline">Teknik beceriler</span></h4>
+                    <p>Teknik beceriler &ouml;ğretmenin ders ara&ccedil;larını kullanma becerisine sahip olabilme yetisidir. &Ouml;zellikle e-posta ve forum buna &ouml;rnek olarak verilebilir.</p>
+                    <h4><span id="Kolayla.C5.9Ft.C4.B1r.C4.B1c.C4.B1_beceriler"></span><span id="Kolaylaştırıcı_beceriler" class="mw-headline">Kolaylaştırıcı beceriler</span></h4>
+                    <p>&Ouml;ğrencilerin &ouml;ğrenme kapasitelerini arttırmaya y&ouml;nelik kullanılan becerilerdir. Bunların en &ouml;nemlileri&nbsp;:</p>
+                    <p>&bull; &Ouml;ğrenciyi &ouml;ğrenme s&uuml;recine aktif olarak dahil etmek</p>
+                    <p>&bull; &Ouml;ğrenciyi sorgulatmak</p>
+                    <p>&bull; &Ouml;ğrenciyi dinlemek</p>
+                    <p>&bull; &Ouml;ğrenciyi y&ouml;netmek</p>
+                    <p>&bull; Online (&ccedil;evrimi&ccedil;i) tartışmalar d&uuml;zenlemek</p>
+                    <p>&bull; Online (&ccedil;evrimi&ccedil;i)) takımlar oluşturmak</p>
+                    <p>&bull; &Ouml;ğrenciyi sosyalleştirmek</p>
+                    <p>&bull; &Ouml;ğrencinin motivasyonunu arttırmak (Berge &amp; Collins, 1995; Collins &amp; Berge, 1996)</p>
+                    <h4><span id="Y.C3.B6netimsel_beceriler"></span><span id="Y&ouml;netimsel_beceriler" class="mw-headline">Y&ouml;netimsel beceriler</span></h4>
+                    <p>&Ouml;ğrencilerin kolay &ouml;ğrenebilmesini sağlamak i&ccedil;in yapılan d&uuml;zenlemelerin t&uuml;m&uuml;d&uuml;r, temel d&ouml;rt ana başlık i&ccedil;erir&nbsp;:</p>
+                    <p>&bull; &Ouml;ğrenci ve &ouml;ğretmenler i&ccedil;in zaman y&ouml;netimi;</p>
+                    <p>&bull; &Ouml;ğrenim s&uuml;reci i&ccedil;in rehberler hazırlamak</p>
+                    <p>&bull; &Ouml;ğrenim aşamalarını planlama,g&ouml;zlemleme,d&uuml;zenleme</p>
+                    <p>&bull; &Ouml;ğrencilerin farklı ihtiya&ccedil;larına g&ouml;re &ouml;ğrenim tekniklerini şekillendirmek(Kemshal-Bell, 2001).</p>
+                    <h3><span id=".C3.96.C4.9Frencinin_rol.C3.BC"></span><span id="&Ouml;ğrencinin_rol&uuml;" class="mw-headline">&Ouml;ğrencinin rol&uuml;</span></h3>
+                    <p>Web-tabanlı eğitimde &ouml;ğrencilerin başarı ve tatminlerini etkileyen pek &ccedil;ok değişken bulunmaktadır. İlişki seviyesi ve &ouml;ğrenme şekilleri &ouml;rnek olarak g&ouml;sterilebilir. (Moore &amp; Kearsley, 1996). Bu fakt&ouml;rlerin &ouml;ğrenim s&uuml;recini nasıl etkilediğini anlayabilmek, gerekli d&uuml;zenlemelerle &ouml;ğrenim s&uuml;recinin iyileştirilmesinde b&uuml;y&uuml;k rol oynar. Web tabanlı &ouml;ğrenimde &ouml;ğrencinin rol&uuml;n&uuml; tespit etmek amacıyla Yapılan araştırmalar sonucunda &ouml;ğrencinin başarısını arttırmadaki rol&uuml;&nbsp;:</p>
+                    <p>&bull; &Ouml;ğrenim ara&ccedil;larına erişim</p>
+                    <p>&bull; Teknolojiyi kullanabilme</p>
+                    <p>&bull; &Ouml;ğrenme tercihleri</p>
+                    <p>&bull; &Ccedil;alışma şekil ve alışkanlıkları</p>
+                    <p>&bull; &Ouml;ğrencinin ama&ccedil; ve hedefleri</p>
+                    <p>&bull; Yaşam tarzı</p>
+                    <p>&bull; Kişisel &ouml;zellik ve karakter temaları</p>
+                    <p>olarak yedi ana başlık altında toplanmıştır. (Schrum and Hong ,2002)</p>
+                    <h4><span id=".C3.96.C4.9Frenim_ara.C3.A7lar.C4.B1na_eri.C5.9Fim"></span><span id="&Ouml;ğrenim_ara&ccedil;larına_erişim" class="mw-headline">&Ouml;ğrenim ara&ccedil;larına erişim</span></h4>
+                    <p>Yapılan araştırma sonucunda şehirlerde yaşayan &ouml;ğrencilerin kırsal alandakilere oranla &ouml;ğrenim s&uuml;recinde daha başarılı olduğu ve daha tatminkar sonu&ccedil;lar elde ettikleri g&ouml;zlenmiştir. İnternet bağlantı hızı buna verilebilecek en b&uuml;y&uuml;k &ouml;rnektir. (Irons, et al., 2002)</p>
+                    <h4><span id="Teknolojiyi_kullanabilme" class="mw-headline">Teknolojiyi kullanabilme</span></h4>
+                    <p><a title="Teknoloji" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvVGVrbm9sb2pp">Teknoloji</a>&nbsp;yatkınlığı g&ouml;z &ouml;n&uuml;ne alındığında bilgisayar kullanabilme becerilerinin &ouml;ğrenme &uuml;zerinde g&ouml;zle g&ouml;r&uuml;l&uuml;r bir fark yaratamamasına rağmen &ouml;ğrencinin memnuniyetini arttırdığı g&ouml;zlenmiştir. (Fredericksen, et al., 2000; Swan, et al., 2000; Sturgill, et al., 1999)</p>
+                    <h4><span id="Di.C4.9Fer_etmenler"></span><span id="Diğer_etmenler" class="mw-headline">Diğer etmenler</span></h4>
+                    <p>&bull; &Ouml;ğrenme tercihleri</p>
+                    <p>&bull; &Ccedil;alışma şekil ve alışkanlıkları</p>
+                    <p>&bull; &Ouml;ğrencinin ama&ccedil; ve hedefleri</p>
+                    <p>&bull; Yaşam tarzı</p>
+                    <p>&bull; Kişisel &ouml;zellik ve karakter temaları</p>
+                    <p>Bu etmenler hakkında yapılan araştırma sonu&ccedil;ları tutarlılık g&ouml;stermemektedir. Bu konularda daha ileri araştırmaların yapılması gerekmektedir. (Fredericksen, et al., 2000; Karuppan, 2001; Swan, et al., 2000; Blum, 1999; Kearsley, 2000).</p>
+                    <h2><span id="E.C5.9F-zamanl.C4.B1_ve_E.C5.9F-zamans.C4.B1z_ileti.C5.9Fim_ara.C3.A7lar.C4.B1"></span><span id="Eş-zamanlı_ve_Eş-zamansız_iletişim_ara&ccedil;ları" class="mw-headline">Eş-zamanlı ve Eş-zamansız iletişim ara&ccedil;ları</span></h2>
+                    <h3><span id="E.C5.9F-zamanl.C4.B1_ileti.C5.9Fim_ara.C3.A7lar.C4.B1"></span><span id="Eş-zamanlı_iletişim_ara&ccedil;ları" class="mw-headline">Eş-zamanlı iletişim ara&ccedil;ları</span></h3>
+                    <p><a class="new" title="Eş-zamanlı iletişim (sayfa mevcut değil)" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPUUlQzUlOUYtemFtYW5sJUM0JUIxX2lsZXRpJUM1JTlGaW0mYWN0aW9uPWVkaXQmcmVkbGluaz0x">Eş-zamanlı iletişim</a>&nbsp;&ouml;ğretim ve &ouml;ğrenim s&uuml;re&ccedil;leri aynı anda ger&ccedil;ekleşir. &Ouml;ğretmen ve &ouml;ğrenci &ouml;ğrenme s&uuml;reci sırasında birbirleriyle anlık olarak iletişime ge&ccedil;ebilirler.</p>
+                    <p>&bull; Canlı dersler</p>
+                    <p>&bull; Videokonferanslar</p>
+                    <p>&bull; Sohbet odaları</p>
+                    <h3><span id="E.C5.9F-zamans.C4.B1z_ileti.C5.9Fim_ara.C3.A7lar.C4.B1"></span><span id="Eş-zamansız_iletişim_ara&ccedil;ları" class="mw-headline">Eş-zamansız iletişim ara&ccedil;ları</span></h3>
+                    <p><a class="new" title="Eş-zamansız iletişim (sayfa mevcut değil)" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPUUlQzUlOUYtemFtYW5zJUM0JUIxel9pbGV0aSVDNSU5RmltJmFjdGlvbj1lZGl0JnJlZGxpbms9MQ">Eş-zamansız iletişim</a>&nbsp;&ouml;ğretim ve &ouml;ğrenim s&uuml;re&ccedil;leri aynı anda ger&ccedil;ekleşmez. Taraflar arasındaki iletişim karşılıklı gecikmelerle sağlanır.</p>
+                    <p>&bull; Tartışma forumları</p>
+                    <p>&bull; Elektronik posta</p>
+                    <h2><span id="Ayr.C4.B1ca_bak.C4.B1n.C4.B1z"></span><span id="Ayrıca_bakınız" class="mw-headline">Ayrıca bakınız</span></h2>
+                    <ul>
+                        <li><a title="M-&ouml;ğrenme" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvTS0lQzMlQjYlQzQlOUZyZW5tZQ">M-&ouml;ğrenme</a></li>
+                        <li>E-&ouml;ğrenme</li>
+                        <li><a title="Uzaktan eğitim" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvVXpha3Rhbl9lJUM0JTlGaXRpbQ">Uzaktan eğitim</a></li>
+                        <li><a title="Uzaktan eğitimin tarihsel gelişimi" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvVXpha3Rhbl9lJUM0JTlGaXRpbWluX3Rhcmloc2VsX2dlbGklQzUlOUZpbWk">Uzaktan eğitimin tarihsel gelişimi</a></li>
+                        <li><a class="new" title="Uzaktan eğitim ile y&uuml;z y&uuml;ze &ouml;ğrenme arasındaki farklar, avantaj, dezavantajlar (sayfa mevcut değil)" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3cvaW5kZXgucGhwP3RpdGxlPVV6YWt0YW5fZSVDNCU5Rml0aW1faWxlX3klQzMlQkN6X3klQzMlQkN6ZV8lQzMlQjYlQzQlOUZyZW5tZV9hcmFzJUM0JUIxbmRha2lfZmFya2xhcixfYXZhbnRhaixfZGV6YXZhbnRhamxhciZhY3Rpb249ZWRpdCZyZWRsaW5rPTE">Uzaktan eğitim ile y&uuml;z y&uuml;ze &ouml;ğrenme arasındaki farklar, avantaj, dezavantajlar</a></li>
+                        <li><a title="Senkron uzaktan eğitim" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvU2Vua3Jvbl91emFrdGFuX2UlQzQlOUZpdGlt">Senkron uzaktan eğitim</a></li>
+                        <li><a title="Asenkron uzaktan eğitim" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvQXNlbmtyb25fdXpha3Rhbl9lJUM0JTlGaXRpbQ">Asenkron uzaktan eğitim</a></li>
+                        <li><a class="mw-redirect" title="İnternet Destekli &Ouml;ğretim" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvJUM0JUIwbnRlcm5ldF9EZXN0ZWtsaV8lQzMlOTYlQzQlOUZyZXRpbQ">İnternet Destekli &Ouml;ğretim</a></li>
+                        <li><a class="mw-redirect" title="Uzaktan Eğitimin Ticari Ortamlardaki Uygulamaları" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvVXpha3Rhbl9FJUM0JTlGaXRpbWluX1RpY2FyaV9PcnRhbWxhcmRha2lfVXlndWxhbWFsYXIlQzQlQjE">Uzaktan Eğitimin Ticari Ortamlardaki Uygulamaları</a></li>
+                        <li><a title="Harmanlanmış &ouml;ğrenme" href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvSGFybWFubGFubSVDNCVCMSVDNSU5Rl8lQzMlQjYlQzQlOUZyZW5tZQ">Harmanlanmış &ouml;ğrenme</a></li>
+                    </ul>
+                    <h2><span id="Notlar_ve_Referanslar" class="mw-headline">Notlar ve Referanslar</span></h2>
+                    <div>
+                        <ol>
+                            <li><cite id="endnote_1"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzE"><strong>&uarr;</strong></a></cite>&nbsp; E-Learning 101: An Introduction to E-Learning, Learning Tools, and Technologies</li>
+                            <li><cite id="endnote_2"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzI"><strong>&uarr;</strong></a></cite>&nbsp; Holmes, B., Gardner, J.(2006). E-Learning concepts and practice. SAGE Publication. p.&nbsp;40.</li>
+                            <li><cite id="endnote_3"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzM"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5uYW1haG4uY29tL3Jlc291cmNlcy9kb2N1bWVudHMvbm90ZS1lLWxlYXJuaW5nLnBkZg" rel="nofollow">E-&ouml;ğrenme.&nbsp;<em>Namahn</em>.</a>&nbsp;URL Erişim Tarihi: 02 Ağustos 2008</li>
+                            <li><cite id="endnote_4"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzQ"><strong>&uarr;</strong></a></cite>&nbsp; Holmes, B., Gardner, J.(2006). E-Learning concepts and practice. SAGE Publication. p.&nbsp;41.</li>
+                            <li><cite id="endnote_5"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzU"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5uYW1haG4uY29tL3Jlc291cmNlcy9kb2N1bWVudHMvbm90ZS1lLWxlYXJuaW5nLnBkZg" rel="nofollow">E-&ouml;ğrenme.&nbsp;<em>Namahn</em>.</a>&nbsp;URL Erişim Tarihi: 02 Ağustos 2008</li>
+                            <li><cite id="endnote_6"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzY"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5uYW1haG4uY29tL3Jlc291cmNlcy9kb2N1bWVudHMvbm90ZS1lLWxlYXJuaW5nLnBkZg" rel="nofollow">E-&ouml;ğrenme.&nbsp;<em>Namahn</em>.</a>&nbsp;URL Erişim Tarihi: 02 Ağustos 2008</li>
+                            <li><cite id="endnote_7"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzc"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL2FiLm9yZy50ci9hYjA3L2JpbGRpcmkvMTM4LmRvYw" rel="nofollow">Bir Web Tabanlı E-&ouml;ğrenme Uygulaması.&nbsp;<em>Akademik Bilişim Konferansı 2007</em></a>&nbsp;URL Erişim Tarihi: 10 Ağustos 2008</li>
+                            <li><cite id="endnote_8"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzg"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5lY291cnNlcy5vdS5lZHU" rel="nofollow">E-kurs. Web-Tabanlı E-&ouml;ğrenme.</a>&nbsp;URL Erişim Tarihi 10 Ağustos 2008</li>
+                            <li><cite id="endnote_9"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzk"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5iaWxnaS5hb2YuZWR1LnRyL3lheWlubGFyLzIwMDUvYSVDMyVBNyVDNCVCMWslQzMlQjYlQzQlOUZyZXRpbSUyMGUtJUMzJTk2JUM0JTlGcmVubWUlMjBzaXN0ZW1pbmRlJTIwJUMzJTk2JUM0JTlGcmVuY2klMjAtJTIwJUM0JUIwJUMzJUE3ZXJpayUyMGV0a2lsZSVDNSU5RmltaS5wZGY" rel="nofollow">E-&ouml;ğrenme. E-&ouml;ğrenmede &ouml;ğrenci-i&ccedil;erik etkileşimi.</a>&nbsp;URL Erişim Tarihi 11 Ağustos 2008</li>
+                            <li><cite id="endnote_10"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzEw"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5iaWxnaS5hb2YuZWR1LnRyL3lheWlubGFyLzIwMDYvYWNpa29ncmV0aW1kZV9tb2JpbF9vZ3Jlbm1lLnBkZg" rel="nofollow">M-&Ouml;ğrenme.&nbsp;<em>Bilgi</em>.</a>&nbsp;URL Erişim Tarihi: 10 Ağustos 2008</li>
+                            <li><cite id="endnote_10"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzEw"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5zdGNsZW1lbnRzdHIuY29t" rel="nofollow"><em>St clements &uuml;niversitesi t&uuml;rkiye uzaktan eğitim</em>.</a></li>
+                            <li><cite id="endnote_12"><a href="http://www.wikizeroo.net/index.php?q=aHR0cHM6Ly90ci53aWtpcGVkaWEub3JnL3dpa2kvRS3DtsSfcmVubWUjcmVmXzEy"><strong>&uarr;</strong></a></cite>&nbsp;&nbsp;<a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5lb2dyZW5tZS5uZXQvaW5kZXgucGhwP29wdGlvbj1jb21fY29udGVudCZ0YXNrPXZpZXcmaWQ9NSZJdGVtaWQ9Ng" rel="nofollow"><em>e-&Ouml;ğrenme Nedir?</em>.</a></li>
+                        </ol>
+                    </div>
+                    <h2><span id="Kaynak.C3.A7a"></span><span id="Kaynak&ccedil;a" class="mw-headline">Kaynak&ccedil;a</span></h2>
+                    <ul>
+                        <li>Holmes, B., Gardner, J.(2006). E-Learning concepts and practice. SAGE Publication.</li>
+                        <li><a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5uYW1haG4uY29tL3Jlc291cmNlcy9kb2N1bWVudHMvbm90ZS1lLWxlYXJuaW5nLnBkZg" rel="nofollow">E-&ouml;ğrenme.&nbsp;<em>Namahn</em>.</a></li>
+                        <li><a class="external text" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5lb2dyZW5tZS5uZXQ" rel="nofollow"><em>e-&Ouml;ğrenme Kaynaklar</em>.</a></li>
+                        <li>(İngilizce)<a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL2dvbGlhdGguZWNuZXh0LmNvbS9jb21zMi9naV8wMTk5LTIzMjkyNDQvUGVyY2VwdGlvbnMtb2YtdGhlLXRlYWNoZXItcy5odG1s" rel="nofollow">[11]</a></li>
+                        <li>(İngilizce)<a class="external autonumber" href="http://www.wikizeroo.net/index.php?q=aHR0cDovL3d3dy5maXJzdG1vbmRheS5vcmcvSVNTVUVTL2lzc3VlMTBfMTEva2ltL2luZGV4Lmh0bWw" rel="nofollow">[12]</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+    <div id="mw-navigation">&nbsp;</div>

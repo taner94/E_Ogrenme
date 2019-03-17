@@ -1,0 +1,50 @@
+﻿@using EOgrenme.Models
+@{
+    ViewBag.Title = "UserShowMyProfile";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="panel panel-default post">
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-2">
+                                <a href="/User/UserShowMyProfile/@CurrentSession.User.Id" class="post-avatar thumbnail"><img src="~/images/@CurrentSession.User.ProfileImageFileName" alt="" /></a>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="bubble">
+                                    <div class="pointer">
+                                        <p>Kullanıcı Adı :<b> @CurrentSession.User.Username</b></p>
+                                        <p>Ad Soyad      :<b> @CurrentSession.User.Name @CurrentSession.User.Surname</b></p>
+                                        <p>E-Mail        :<b> @CurrentSession.User.Email</b></p>
+                                        <p>Yas        :<b> @CurrentSession.User.Age</b></p>
+                                        <p>Dogum Tar. :<b> @CurrentSession.User.DateOfBirth</b></p>
+                                        <p>Telefon No :<b> @CurrentSession.User.PhoneNumber</b></p>
+                                        <p>Activate Guid :<b> @CurrentSession.User.ActivateGuid</b></p>
+                                        <button type="submit" onclick="Frezee()" id="btnFree" class="btn btn-danger">
+                                            <i class="glyphicon glyphicon-remove"></i> Hesap Dondur
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    function Frezee() {
+        $.ajax({
+            url: "/User/UserFreezeProfile"
+        }).done(
+            load("/Home/Index")
+        ).fail(function () {
+
+        });
+    };
+</script>

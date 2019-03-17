@@ -1,0 +1,71 @@
+﻿@using EOgrenme.Models
+@using EOgrenme.Entities
+@model List<Course>
+@{
+    ViewBag.Title = "AuthorSharedCourse";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <section>
+        <div class="container" id="myhares">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        @foreach (Course course in Model)
+                        {
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <a href="/Course/ShowCourse/@course.Id"><h3 class="panel-title">@course.CourseName</h3></a>
+                                </div>
+                            </div>
+                            <div class="panel-body">
+                                <div class="row">
+                                    <div class="col-md-2">
+                                        <a href="/Author/AuthorShowMyProfile/@course.Owner.Id" class="post-avatar thumbnail"><img src="~/images/@course.Owner.ProfileImageFileName" alt="" /></a>
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="bubble">
+                                            <div class="pointer">
+                                                <p>Ders Ad        :<b> @course.CourseName</b></p>
+                                                <p>Yazar          :<b><a href="/Author/AuthorShowMyProfile/@course.Owner.Id">@course.Owner.Name @course.Owner.Surname </a></b></p>
+                                                <p>Ders Bas. Tar. :<b> @course.CreatedDate</b></p>
+                                                <p>Ders Sayisi    :<b> @course.Share.Count</b></p>
+                                                <p>Ogrenci Sayisi :<b> @course.UserCount</b></p>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+
+                                        <p class="post-actions">
+                                            <button type="submit" href="Course/Delete/@course.Id" class="btn btn-danger" id="deneme" data-share-id="@course.Id">
+                                                <i class="glyphicon glyphicon-remove"></i> Dersi Sil
+                                            </button>
+                                        </p>
+
+                                        <p class="post-actions">
+                                            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modal_comment" data-share-id="@course.Id">
+                                                <span class="fa fa-comment"></span><i class="glyphicon glyphicon-comment"></i> Yorumlar&nbsp;&nbsp;&nbsp;
+                                            </button>
+                                        </p>
+                                        <p class="post-actions">
+                                            <button class="btn btn-primary btn-sm" data-share-id="@course.Id">
+                                                <span class="fa fa-comment"></span><i class="glyphicon glyphicon-user"></i> Ogrenciler
+                                            </button>
+                                        </p>
+
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

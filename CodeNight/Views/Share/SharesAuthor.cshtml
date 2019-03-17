@@ -1,0 +1,156 @@
+﻿@using EOgrenme.Models
+@using EOgrenme.Entities
+
+@model List<Share>
+@{
+    ViewBag.Title = "Shares";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<body>
+    <section>
+        <div class="container" id="myhares">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="panel panel-default">
+                        @if (AuthorSession.Author != null)
+                        {
+                            <div class="panel panel-default">
+
+                                <div class="panel-heading">
+                                    <h3 class="panel-title">Bir video,fotoğraf,ses veya yazı paylaş</h3>
+                                </div>
+                                <div class="panel-body">
+                                    <form>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title">@ViewData["deneme"]</h3>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="hidden" class="form-control" placeholder="Ders Ismi" id="status1" value="@ViewData["deneme"]" />
+                                        </div>
+
+                                        <div class="form-group">
+                                            <textarea class="form-control" placeholder="Ders Paylaşımı Yap.." id="status"></textarea>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-success" id="btnPost"><i class="glyphicon glyphicon-send"></i>  Paylaş</button>
+                                        <div class="pull-right">
+                                            <div class="btn-toolbar">
+                                                <a href="/Share/ImageUpload/@ViewData["Deneme"]" type="button" class="btn btn-success"><i class="glyphicon glyphicon-picture"></i> Resim</a>
+                                                <a href="/Share/VideoUpload/@ViewData["Deneme"]" type="button" class="btn btn-success"><i class="glyphicon glyphicon-facetime-video"></i> Video</a>
+                                                <a href="/Share/SoundUpload/@ViewData["Deneme"]" type="button" class="btn btn-success"><i class="glyphicon glyphicon-music"></i> Ses</a>
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        }
+                        @foreach (Share share in Model)
+                        {
+                            <div class="panel panel-default post" data-share-id="@share.Id">
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="bubble">
+                                                <div class="pointer">
+                                                    <p>@share.ShareText</p>
+                                                    @if (share.ShareImagFileName != null)
+                                                    {
+                                                        <img src="~/images/@share.ShareImagFileName" class="img-responsive" />
+                                                    }
+                                                </div>
+                                                <div class="pointer">
+                                                    @if (share.ShareVideoFileName != null)
+                                                    {
+                                                        <video controls="controls" class="img-responsive">
+                                                            <source src="~/Videos/@share.ShareVideoFileName" type="video/mp4" />
+                                                        </video>
+                                                    }
+                                                </div>
+                                                <div class="pointer">
+                                                    @if (share.ShareSoundFileName != null)
+                                                    {
+                                                        <audio controls="controls">
+                                                            <source src="~/sounds/@share.ShareSoundFileName" type="audio/mpeg" />
+                                                        </audio>
+                                                    }
+                                                </div>
+                                                <hr />
+                                                <div class="pointer-border">
+                                                    <div class="col-md-6">
+                                                        @if (AuthorSession.Author.Id == share.Owner.Id)
+                                                        {
+                                                            <p class="post-actions">
+                                                                <button type="submit" class="btn btn-danger" onclick="Sil(@share.Id)" data-share-id="@share.Id"><i class="glyphicon glyphicon-remove"></i> Paylasimi Sil</button>
+                                                            </p>
+                                                        }
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <p class="text-right" style="font-size:14px"><span class="fa fa-calendar"> @share.CreatedDate.ToString("dd.MM.yy HH:mm")</span></p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
+
+<script>
+    $("#btnPost").click(function () {
+        var Share = $("#status").val();
+        var Ad = $("#status1").val();
+        alert(Share);
+        $.ajax({
+            url: "/Share/ShareShare",
+            method: "POST",
+            data: {
+                ShareText: Share,
+                ad: Ad
+            }
+        }).done(function (data) {
+            if (data.result) {
+                load("/Home/Index");
+            }
+            else {
+
+            }
+        }).fail(function () {
+
+        });
+    });
+
+    function Sil(Id) {
+    $.ajax({
+        url: "/Share/ShareDelete",
+        method: "POST",
+        data: {
+            id: Id
+        }
+    }).done(function (data) {
+        if (data.result) {
+            load("/Home/Index");
+        }
+        else {
+
+        }
+    }).fail(function () {
+
+    });
+    };
+</script>
